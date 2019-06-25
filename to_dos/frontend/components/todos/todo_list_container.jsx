@@ -1,19 +1,19 @@
 import ToDo from './todo_list';
+import allTodos from '../../reducers/selectors';
+import receiveTodo from '../../actions/todo_actions';
+import {connect} from 'react-redux';
 
-const mapStateToProps = (state) => ({
-  todos: allTodos(state)
-});
+const mapStateToProps = state => {
+  return {todos: allTodos(state)};
+};
 
-// why are we passing dispatch?
 const mapDispatchToProps = dispatch => ({
   receiveTodo: todo => dispatch(receiveTodo(todo))
 });
 
-const ToDoListContainer = connect(
+// this is a candy wrapper
+// ??? connect passes state + dispatch as props to component
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ToDo);
-
-export default ToDoListContainer;
-
-// what is going on here? all of it.

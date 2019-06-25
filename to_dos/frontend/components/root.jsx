@@ -1,12 +1,11 @@
 import React from 'react';
 import {Provider} from 'react-redux';
 import App from './app';
-import ToDoList from './todos/todo_list';
 
 const Root = ({ store }) => (
+  // ??? what is the point of provider?
   <Provider store={store}>
     <App />
-    <ToDoList />
   </Provider>
 );
 
