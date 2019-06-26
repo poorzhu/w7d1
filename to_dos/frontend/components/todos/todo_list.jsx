@@ -1,36 +1,25 @@
 import React from 'react';
+import TodoListItem from './todo_list_item';
+import TodoForm from './todo_form';
 
 // this is candy
 class TodoList extends React.Component {
   
   render() {
-    debugger;
     const todos = this.props.todos;
     
-    const todosList = todos.map( todo => {
+    const todosList = todos.map(todo => {
       return(
-      <li key={todo.id}> 
-        
-        {todo.title} 
-        <br/>
-        {todo.body}
-      </li>);
-    })
-    
-    return todosList;
+        <TodoListItem todo={todo} />
+      );
+    });
+    return(
+      <>
+        <div>{todosList}</div>
+        <TodoForm receiveTodo={ this.props.receiveTodo }/>
+      </>
+    );
   }
-  
 }
 
 export default TodoList;
-
-// const TodoList = () => {
-//   // where does props come from?
-//   //how to use the connect export
-//   debugger;
-//   return (
-//   <ul>
-
-//   </ul>
-//   );
-// };
